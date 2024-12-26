@@ -1,0 +1,14 @@
+<!-- app/views/users/show.html.erb -->
+<h1><%= @user.username %>'s Profile</h1>
+<p>Email: <%= @user.email %></p>
+<p>Username: <%= @user.username %></p>
+<%# <h3>Profile Comments:</h3>
+<%= render 'comments/form', commentable: @user %>
+<%# <div class="comments">
+  <%= render @user.comments %>
+<%# </div>  %>
+<%= link_to 'Edit Profile', edit_user_path(@user) %><br>
+<%= link_to 'Create a New Post', new_post_path %><br>
+<%= link_to 'Show Posts', posts_path %><br>
+<%= link_to 'Back', users_path(@user) %>
+

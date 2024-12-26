@@ -1,0 +1,32 @@
+
+<h1>Posts</h1>
+
+
+
+<% @posts.each do |post| %>
+  <div class="post">
+     <h4>User Name:</h4>
+    <strong><%= post.user.username %></strong>
+     <h4> Created Time: </h4>
+    <strong><%= post.created_at.strftime("%B %d, %Y at %I:%M %p") %></strong>
+     <h4>Description:</h4>
+    <strong><%= post.content %></strong>
+
+    <% if post.image.attached? %>
+     <h4>Photo:</h4>
+      <%= image_tag(post.image) %>
+    <% end %>
+    
+    <% if post.user == current_user %>
+    
+      <%= render "comments/form", comment: @comment %>
+      <%= link_to 'Show', post %>
+      <%# <%= link_to 'Comment', post_comments_path(post) %>  
+      <%= link_to 'Edit', edit_post_path(post) %> |
+      <%= link_to 'Delete', post_path(post), 
+          method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
+  </div>
+<% end %>
+
+<%= link_to 'New Post', new_post_path %>

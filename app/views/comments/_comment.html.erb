@@ -1,0 +1,49 @@
+<user>
+  <p><%= comment.content %></p>
+  <small>by<%= comment.email %></small>
+</user>
+<hr/>
+
+
+ <div class="comment"> %>
+  <p><strong><%= comment.user.username</strong> <%= comment.created_at.strftime("%B %d, %Y at %I:%M %p") %></p> 
+   <p><%= comment.content %></p>
+   <p><%= comment.post_id %></p>
+   <p><%= comment.user_id %></p>
+   <p><%= comment.parent_id %></p>
+   <%= form.submit "Submit" %>
+</div>
+
+  
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%= render :partial => 'comments/form', :collection => @post.comments %>
+
+<%# <div class="comment"> %>
+  <%# <p><strong><%= comment.user.username</strong> <%= comment.created_at.strftime("%B %d, %Y at %I:%M %p") %></p> 
+  <%# <p><%= comment.content %></p> 
+
+  <!-- Display replies -->
+  <%# <% if comment.replies.any? && comment.depth < 4 %> 
+    <%# <div class="replies"> %>
+      <%# <%= render comment.replies %> 
+    <%# </div> %>
+  <%# <% end %> 
+
+  <!-- Form to reply to this comment -->
+  <%# <%= render 'comments/form', commentable: comment.commentable, parent_id: comment.id %> 
+<%# </div> %>

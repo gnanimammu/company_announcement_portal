@@ -1,0 +1,16 @@
+<h1>All Users</h1>
+
+<%= form_with url: users_path, method: :get, local: true do |form| %>
+  <%= form.label :search, "Search Users" %>
+  <%= form.text_field :search %>
+  <%= form.submit "Search" %>
+<% end %>
+
+<ul>
+  <% @users.each do |user| %>
+    <li><%= link_to user.username, user_path(user) %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Log out', root_path %><br>
+<%# <%= link_to 'Log Out', session_path, method: :delete %>  
